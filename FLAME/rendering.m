@@ -7,9 +7,9 @@ if nargin > 4
 end
 
 if Parameter.MB_option == 0
-rendering1(intensity_n, speed, output_CEUS);
+rendering_single(intensity_n, speed, output_CEUS);
 else if Parameter.MB_option == 1
-rendering2(intensity_n, intensity_p, speed, output_CEUS);
+rendering_dual(intensity_n, intensity_p, speed, output_CEUS);
     end
 end
 end

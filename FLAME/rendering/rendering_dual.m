@@ -12,7 +12,7 @@ input1T = flipud(permute(input1, [3 2 1]));
 input2T = flipud(permute(input2, [3 2 1]));
 input3T = flipud(permute(input3, [3 2 1]));
 input4T = flipud(permute(input4, [3 2 1]));
-input4T = double(input4T./max(max(max(input4T))));
+input4T = input4T./max(max(max(input4T)));
 
 T1_n = max(input1T,[],3);
 T1_p = max(input2T,[],3);

@@ -7,7 +7,7 @@ ipic_phase = ipic_phase./max(max(ipic_phase));
 input1T = flipud(permute(input1, [3 2 1]));
 input2T = flipud(permute(input2, [3 2 1]));
 input3T = flipud(permute(input3, [3 2 1]));
-input3T = double(input3T./max(max(max(input3T))));
+input3T = input3T./max(max(max(input3T)));
 
 T1_x = max(input1T,[],3);
 T1_speed = max(input2T,[],3);
