@@ -22,39 +22,35 @@ function [output_CEUS, output_deconv_n, output_deconv_p] = FLAME_function(input,
 %****************************************************************************
 
 %--------Necessary Parameters--------
-% Parameter.SVD_option        |   Whether it is necessary to perform SVD filtering. {default: 0}
-% Parameter.MB_option         |   Whether it is necessary to perform MB direction filter. {default: 0}
-% Parameter.pixel             |   Pixel size of the input data (um). {default: 60 * 10^-6}
-% Parameter.fidelity          |   Fidelity of sparse reconstruction. {default: 200}
-% Parameter.sparsity          |   Sparsity of sparse reconstruction. {default: 10}
-% Parameter.FWHM2             |   Half height and width (FWHM) of the post-deconvolution kernel. {default: 240 * 10^-6}
-% Parameter.iter2             |   Number of iterations for post-deconvolution. {default: 15}
+% Parameter.SVD_option        |   Enable SVD filtering. {default: 0}
+% Parameter.MB_option         |   Enable MB (multi-band) direction filtering. {default: 0}
+% Parameter.pixel             |   Pixel size of input data (µm). {default: 60}
+% Parameter.fidelity          |   Sparsity reconstruction fidelity (controls data fidelity term weight). {default: 200}
+% Parameter.sparsity          |   Sparsity reconstruction strength (controls sparsity term weight). {default: 10}
+% Parameter.FWHM2             |   Full-width half-maximum (FWHM) of post-deconvolution kernel (µm). {default: 240}
+% Parameter.iter2             |   Number of post-deconvolution iterations. {default: 15}
 %--------Expert parameters-------------
-% Parameter.Stab_option       |   Whether it is necessary to remove unstable frames caused by breathing or heartbeat. {default: 1}
-% Parameter.cutoff1           |   Low threshold of SVD filtering. {default: 0.25}
-% Parameter.cutoff2           |   High threshold of SVD filtering. {default: 0.8}
-% Parameter.BF_option1        |   Whether it is necessary to perform additional background filtering. Tip: This operation will significantly reduce computation speed. {default: 0}
-% Parameter.finter1           |   First upsampling multiple. Tip: This operation will improve reconstruction quality, significantly reduce computation speed, 
-%                             |   and require larger memory allocation. When increasing the upsampling multiple, 
-%                             |   it is recommended to reduce Parameter.fidelity and Parameter.sparsity accordingly. {default: 2}
-% Parameter.FWHM1             |   Half height and width (FWHM) of the pre-deconvolution kernel. Size not recommended to exceed Parameter.FWHM2. {180 * 10^-6}
-% Parameter.iter1             |   Number of iterations for pre-deconvolution. {default: 10}
-% Parameter.hawk_option       |   Whether it is necessary to perform HAWK. Tip: This operation will improve the reconstruction quality and require larger memory allocation. {default: 0}
-% Parameter.order             |   Autocorrelation order. Tips: Increasing the order can improve resolution, but it will reduce the continuity and intensity linearity of the image. {default: 6}
-% Parameter.finter2           |   Second upsampling multiple. Tip: This operation will improve reconstruction quality, significantly reduce computation speed, 
-%                             |   and require larger memory allocation. When increasing the upsampling multiple, 
-%                             |   it is recommended to reduce Parameter.fidelity and Parameter.sparsity accordingly. {default: 2}
-% Parameter.fidelity_z        |   Z-axis fidelity, with a recommended value of 1 for isotropic data. {default: 1}
-% Parameter.BF_option2        |   Whether it is necessary to perform additional background filtering. Tip: This operation will significantly reduce computation speed. {default: 0}
+% Parameter.Stab_option       |   Remove unstable frames (e.g., due to breathing/heartbeat). {default: 1}
+% Parameter.cutoff1           |   Low threshold for SVD filtering (range: 0–1). {default: 0.25}
+% Parameter.cutoff2           |  High threshold for SVD filtering (range: 0–1). {default: 0.8}
+% Parameter.BF_option1        |   Enable additional background filtering. Note: Significantly reduces speed. {default: 0}
+% Parameter.finter1           |   First upsampling factor. Tips: Improves quality but reduces speed/increases memory. Increase only with proportional reduction in fidelity/sparsity. {default: 2}
+% Parameter.FWHM1             |   FWHM of pre-deconvolution kernel (µm).  {default: 180}
+% Parameter.iter1             |   Number of pre-deconvolution iterations. {default: 10}
+% Parameter.hawk_option       |   Enable HAWK processing. Note: Improves quality but increases memory usage. {default: 0}
+% Parameter.order             |   Autocorrelation order. Tips: Higher values improve resolution but reduce image continuity/linearity. {default: 6}
+% Parameter.finter2           |   Second upsampling factor. {default: 2}
+% Parameter.fidelity_z        |   Z-axis fidelity weight. Use 1 for isotropic data. {default: 1}
+% Parameter.BF_option2        |   Secondary background filtering. Note: Significantly reduces speed. {default: 0}
 
 
 % Necessary Parameters
 Parameter.SVD_option = 0;
 Parameter.MB_option = 0;
-Parameter.pixel = 60 * 10^-6;
+Parameter.pixel = 60;
 Parameter.fidelity = 5;
 Parameter.sparsity = 0.01;
-Parameter.FWHM2 = 430 * 10^-6;
+Parameter.FWHM2 = 430;
 Parameter.iter2 = 12;
 
 % Expert parameters
@@ -63,7 +59,7 @@ Parameter.cutoff1 = 0.25;
 Parameter.cutoff2 = 0.8;
 Parameter.BF_option1 = 0;
 Parameter.finter1 = 1;
-Parameter.FWHM1 = 300 * 10^-6;
+Parameter.FWHM1 = 300;
 Parameter.iter1 = 5;
 Parameter.hawk_option = 0;
 Parameter.order = 6;
