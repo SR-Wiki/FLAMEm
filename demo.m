@@ -25,7 +25,7 @@ load testdataStroke_svd;
 
 for i = 1:floor(size(data,4)/30)
 input = data(:,:,:,(i-1)*30+1:(i-1)*30+30);
-[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'MB_option',1);
+[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'MB_option',0);
 SR_volume_n(:,:,:,i) = percennorm(output_deconv_n);
 SR_volume_p(:,:,:,i) = percennorm(output_deconv_p);
 end
@@ -34,4 +34,4 @@ for k = 1:floor(size(data,4)/30)-3
 [intensity_n, intensity_p, speed] = fusion(SR_volume_n(:,:,:,k:k+3),SR_volume_p(:,:,:,k:k+3));
 end
 
-rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',1);
+rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',0);
