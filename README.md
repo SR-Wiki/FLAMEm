@@ -59,7 +59,9 @@ Some adjustable parameters that can optimize the reconstruction results.
 
 `iter1` Number of pre-deconvolution iterations. *{default: 10}*
 
-`hawk_option` Enable HAWK processing. Note: Improves quality but increases memory usage. *{default: 0}*`order` Autocorrelation order. 
+`hawk_option` Enable HAWK processing. Note: Improves quality but increases memory usage. *{default: 0}*
+
+`order` Autocorrelation order. 
 
 ​             Tips: Higher values improve resolution but reduce image continuity/linearity. *{default: 6}*
 
