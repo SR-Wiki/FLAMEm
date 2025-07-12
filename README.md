@@ -26,8 +26,11 @@ Load the target mat file using load and change the variable name to input. The F
 Important parameters that must be set according to actual needs.
 
 `SVD_option`  Enable SVD filtering. *{default: 0}*
+
 `MB_option` Enable MB (multi-band) direction filtering. *{default: 0}*
+
 `pixel` Pixel size of input data (µm). *{default: 60}*
+
 `fidelity` Sparsity reconstruction fidelity (controls data fidelity term weight). *{default: 200}*
 
 `sparsity` Sparsity reconstruction strength (controls sparsity term weight). *{default: 10}*
@@ -41,19 +44,22 @@ Important parameters that must be set according to actual needs.
 Some adjustable parameters that can optimize the reconstruction results.
 
 `Stab_option` Remove unstable frames (e.g., due to breathing/heartbeat). *{default: 1}*
+
 `cutoff1` Low threshold for SVD filtering (range: 0–1). *{default: 0.25}*
+
 `cutoff2`  High threshold for SVD filtering (range: 0–1). *{default: 0.8}*
+
 `BF_option1` Enable additional background filtering. Note: Significantly reduces speed. *{default: 0}*
 
 `finter1` First upsampling factor. Tips: Improves quality but reduces speed/increases memory. 
 
 ​                 Increase only with proportional reduction in fidelity/sparsity. *{default: 2}*
+
 `FWHM1` FWHM of pre-deconvolution kernel (µm).  *{default: 180}*
 
 `iter1` Number of pre-deconvolution iterations. *{default: 10}*
 
-`hawk_option` Enable HAWK processing. Note: Improves quality but increases memory usage. *{default: 0}*
-`order` Autocorrelation order. 
+`hawk_option` Enable HAWK processing. Note: Improves quality but increases memory usage. *{default: 0}*`order` Autocorrelation order. 
 
 ​             Tips: Higher values improve resolution but reduce image continuity/linearity. *{default: 6}*
 
