@@ -14,8 +14,9 @@ This repository is for our developed FLuctuation-based high-order super-resoluti
 ## FLAME reconstruction
 
 <p align='center'>
-<img src='./imgs/workflow.png' align="center" width=500>
+<img src='./imgs/workflow.png' align="center" width=700>
 </p>
+
 
 
 ## Instruction
