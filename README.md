@@ -1,8 +1,9 @@
 <p>
 <h1 align="center">FLAME<font color="#FF6600">m</font></h1>
 <h5 align="center">FLuctuation-based high-order super-resolution Acoustic MicroscopE</h5>
-<h5 align="center">FLAME reconstruction with MATLA</h5>
+<h5 align="center">FLAME reconstruction with MATLAB</h5>
 </p>
+
 
 
 
@@ -105,7 +106,7 @@ end
 Use FLAME's specially designed color encoding to render the final result
 
 ```
-rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',0);
+rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',1);
 ```
 
 <p align='center'>
@@ -116,7 +117,7 @@ You can also export a mat file containing the results and render it using other 
 
 ## Declaration
 
-This repository contains the MATLAB source code for **FLAME** .
+This repository contains the MATLAB source code for **FLAME**.
 
 ## Open source [FLAMEm](https://github.com/SR-Wiki/FLAMEm)
 
