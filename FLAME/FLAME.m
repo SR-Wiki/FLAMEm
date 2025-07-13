@@ -8,7 +8,8 @@ function [output_CEUS, output_deconv_n, output_deconv_p] = FLAME_function(input,
 % Folder 'Function_FLAME' contains the functions demo used.
 % Necessary Parameters: Important parameters that must be set according to actual needs.
 % Expert parameters: Some adjustable parameters that can optimize the reconstruction results. 
-% Before adjusting, please ensure that you have a certain understanding of the principles related to the parameters, otherwise it is recommended to use default values.
+% Before adjusting, please ensure that you have a certain understanding of the principles related to the parameters, 
+% otherwise it is recommended to use default values.
 %****************************** Workflow **********************************
 % STEP1-1. Tissue signal filter
 % STEP1-2. MB direction filter
@@ -32,7 +33,7 @@ function [output_CEUS, output_deconv_n, output_deconv_p] = FLAME_function(input,
 %--------Expert parameters-------------
 % Parameter.Stab_option       |   Remove unstable frames (e.g., due to breathing/heartbeat). {default: 1}
 % Parameter.cutoff1           |   Low threshold for SVD filtering (range: 0–1). {default: 0.25}
-% Parameter.cutoff2           |  High threshold for SVD filtering (range: 0–1). {default: 0.8}
+% Parameter.cutoff2           |   High threshold for SVD filtering (range: 0–1). {default: 0.8}
 % Parameter.BF_option1        |   Enable additional background filtering. Note: Significantly reduces speed. {default: 0}
 % Parameter.finter1           |   First upsampling factor. Tips: Improves quality but reduces speed/increases memory. Increase only with proportional reduction in fidelity/sparsity. {default: 2}
 % Parameter.FWHM1             |   FWHM of pre-deconvolution kernel (µm).  {default: 180}
