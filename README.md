@@ -7,7 +7,7 @@
 
 
 
-This repository is for our developed FLuctuation-based high-order super-resolution Acoustic MicroscopE (FLAME), and it will be in continued development. It is distributed as accompanying software for publication: Weisong Zhao et al. High-throughput 3D super-resolution ultrasound imaging,  Science, submitted (2025). Please cite FLAME in your publications, if it helps your research.
+This repository is for our developed FLuctuation-based high-order super-resolution Acoustic MicroscopE (FLAME), and it will be in continued development. It is distributed as accompanying software for publication: Weisong Zhao et al. High-throughput 3D super-resolution ultrasound imaging,  Nature, submitted (2025). Please cite FLAME in your publications, if it helps your research.
 
 
 
@@ -78,9 +78,9 @@ Some adjustable parameters that can optimize the reconstruction results.
 Here are 4 examples:
 
 ```
-[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'pixel','60 * 10^-6','FWHM2',330 * 10^-6);
+[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'pixel',60,'FWHM2',330);
 [output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'MB_option',1,'fidelity',10,'sparsity',1);
-[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'SVD_option',1'MB_option',1.'cutoff1',0.1,'cutoff2',0.9);
+[output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'SVD_option',1,'MB_option',1,'cutoff1',0.1,'cutoff2',0.9);
 [output_CEUS, output_deconv_n, output_deconv_p] = FLAME(input,'iter1',5,'iter2',30);
 ```
 
@@ -104,7 +104,7 @@ end
 
 ## Visualization
 
-Use FLAME's specially designed color encoding to render the final result
+Use FLAME's specially designed color encoding to render the final result.
 
 ```
 rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',1);
@@ -114,7 +114,7 @@ rendering(intensity_n, intensity_p, speed, output_CEUS,'MB_option',1);
 <img src='./imgs/rendering.png' align="center" width=600>
 </p>
 
-You can also export a mat file containing the results and render it using other software
+You can also export a mat file containing the results and render it using other software.
 
 ## Declaration
 
